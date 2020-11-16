@@ -29,10 +29,12 @@ const containerFluid = {
   paddingLeft: "15px",
   marginRight: "auto",
   marginLeft: "auto",
-  width: "100%"
+  width: "100%",
+  
 };
 const container = {
   ...containerFluid,
+  
   "@media (min-width: 576px)": {
     maxWidth: "540px"
   },
@@ -44,7 +46,8 @@ const container = {
   },
   "@media (min-width: 1200px)": {
     maxWidth: "1140px"
-  }
+  },
+
 };
 
 const boxShadow = {

@@ -23,23 +23,35 @@ export default function PrivacyPolicy(props) {
   const { ...rest } = props;
   return (
     <div>
+         <div style={{marginTop:-75}}>
       <Header
        
         rightLinks={<HeaderLinks />}
-        fixed
-        color="transparent"
+        // fixed
+        // color="transparent"
         changeColorOnScroll={{
           height: 400,
-          color: "white"
+          color: "black"
         }}
         {...rest}
       />
-      <Parallax image={require("assets/img/bg4.jpg")}>
-        <div className={classes.container}>
-          <GridContainer />   
+      </div>
+      <Parallax style={{marginTop:-20}}  image={require("assets/img/network.jpg")}>
+      <div style={{marginBottom:50}} className={classes.container} >
+          <h1 style={{
+               fontSize:'55px',
+               color:'white',
+               flexGrow:1,
+               textAlign:'center',
+               wordSPacing:'1px',
+               letterSpacing:'5px',
+               fontFamily:'Roboto'
+          }}>Privacy Policy</h1>
+          {/* <p style={{flexGrow:1,textAlign: 'center',color:'white',marginTop:25,wordSpacing:1,fontSize:30}}>Custom Metal Credit Cards</p> */}
+       
         </div>
       </Parallax>
-      <div style={{marginTop:20}}>
+      <div style={{marginTop:20,marginBottom:20}}>
       <Container />
       <Footer />
       </div>

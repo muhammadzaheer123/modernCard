@@ -8,35 +8,32 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 // core components
 import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
+
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import SectionBasics from "./Sections/SectionBasics.js";
-import SectionNavbars from "./Sections/SectionNavbars.js";
-import SectionTabs from "./Sections/SectionTabs.js";
-import SectionPills from "./Sections/SectionPills.js";
-import SectionNotifications from "./Sections/SectionNotifications.js";
-import SectionTypography from "./Sections/SectionTypography.js";
-import SectionJavascript from "./Sections/SectionJavascript.js";
-import SectionCarousel from "./Sections/SectionCarousel.js";
-import SectionCompletedExamples from "./Sections/SectionCompletedExamples.js";
-import SectionLogin from "./Sections/SectionLogin.js";
-import SectionExamples from "./Sections/SectionExamples.js";
-import SectionDownload from "./Sections/SectionDownload.js";
+import Footer from 'views/About/Footer.js';
 
 import styles from "assets/jss/material-kit-react/views/components.js";
+import image1 from 'assets/img/button-material-white.png';
+import image3 from 'assets/img/button-material-black.png';
+import image2 from 'assets/img/button-material-blue.png';
+import card1 from 'assets/img/card.png';
+import card2 from 'assets/img/card2.png';
+import card3 from 'assets/img/Rose-Metal.png';
 
 const useStyles = makeStyles(styles);
 
 export default function Components(props) {
   const classes = useStyles();
+  const [imgS,setSImg]=React.useState(card1);
+
   const { ...rest } = props;
   return (
-    <div>
+    <div style={{ backgroundColor:'#000000'}}>
       <Header
         brand="Material adkjhakdjhakjh"
         rightLinks={<HeaderLinks />}
@@ -62,29 +59,20 @@ export default function Components(props) {
           </GridContainer>
         </div>
       </Parallax>
+      <div style={{display:'flex',width:'100%',justifyContent:'center',alignItems:'center',backgroundColor:'black'}}>
+        <img src={imgS} style={{widt:'100%'}} alt="" />
 
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionBasics />
-        <SectionNavbars />
-        <SectionTabs />
-        <SectionPills />
-        <SectionNotifications />
-        <SectionTypography />
-        <SectionJavascript />
-        <SectionCarousel />
-        <SectionCompletedExamples />
-        <SectionLogin />
-        <GridItem md={12} className={classes.textCenter}>
-          <Link to={"/login-page"} className={classes.link}>
-            <Button color="primary" size="lg" simple>
-              View Login Page
-            </Button>
-          </Link>
-        </GridItem>
-        <SectionExamples />
-        <SectionDownload />
       </div>
-      <Footer />
+      <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center',marginTop:-20,width:'100%'}}>
+        <img style={{objectFit:'contain',width:200,height:50,borderRadius:10,objectFit:'contain'}} src={image1} alt="" onClick={()=>setSImg(card1)} />
+        <img style={{objectFit:'contain',width:200,height:50,borderRadius:10,objectFit:'contain'}} src={image2} alt="" onClick={()=>setSImg(card2)} />
+        <img style={{objectFit:'contain',width:200,height:50,borderRadius:10,objectFit:'contain'}} src={image3} alt=""  onClick={()=>setSImg(card3)} />
+
+      </div>
+
+ <div style={{marginTop:20}}><Footer />
+ </div>
+
     </div>
   );
 }

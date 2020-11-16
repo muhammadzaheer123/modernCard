@@ -10,10 +10,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     li:{
-        fontSize:30
+        fontSize:16,
+       
+     
     },
     span_li:{
-        fontSize:20
+        fontSize:16,
+        lineHeight:2.2
+      
     },
     mainHeader:{
         fontWeight:'bold',
@@ -25,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     headerText:{
        
         fontWeight:'bold',
-        padding:20
+        padding:20,
+        fontSize:19
 
     }
 
@@ -35,10 +40,12 @@ export default function SimpleContainer() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container style={{marginTop:10,padding:10,backgroundColor:'white'}}>
-          <h2 className={classes.mainHeader}>Privacy Policy</h2>
+      <Container style={{marginTop:10,padding:10,backgroundColor:'white',paddingBottom:'20px'}}>
+          {/* <h2 className={classes.mainHeader}>Privacy Policy</h2> */}
          <h3 className={classes.headerText}>It is very important for us to maintain your privacy with us and take it into consideration that there will be no chance that your private information can be violated.</h3>
-     <ul>
+    <div style={{width:'100%',paddingLeft:'20px',paddingRight:'20px'}}>
+     <ul style={{fontSize:10,
+        listStyleType:'unset',paddingLeft:30}}>
          <li className={classes.li}><span className={classes.span_li}>We collect the information from you at first step which is your name, address and email address.</span></li>
          <li className={classes.li}><span className={classes.span_li}>When you visit our store then we also collect you IP (Internet Protocol) address so that we can gather information to learn your browser and operating system.</span></li>
          <li className={classes.li}><span className={classes.span_li}>We will do email marketing by just your permissions that if you allow then we will send you email about our stores, new products and updates.</span></li>
@@ -51,6 +58,7 @@ export default function SimpleContainer() {
          <li className={classes.li}><span className={classes.span_li}>By using this site, you represent that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.</span></li>
          <li className={classes.li}><span className={classes.span_li}>If you leave website of our store or if you are directed to some third party website or application, then you will not be linked with our Policy or terms and conditions.</span></li>
      </ul>
+     </div>
 
         
 

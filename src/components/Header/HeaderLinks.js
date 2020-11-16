@@ -2,7 +2,10 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import IconButton from "@material-ui/core/IconButton";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import  {faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import { connect } from 'react-redux';
+import Badge from '@material-ui/core/Badge';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -11,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 // @material-ui/icons
 import { Apps, CloudDownload } from "@material-ui/icons";
 
@@ -24,10 +27,11 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+ function HeaderLinks(props) {
+
   const classes = useStyles();
   return (
-    <List className={classes.list}>
+    <List className={classes.list} style={{background:'red'}}>
       <ListItem className={classes.listItem}>
         {/* <CustomDropdown
           noLiPadding
@@ -83,15 +87,17 @@ export default function HeaderLinks(props) {
           color="transparent"
           // target="_blank"
           className={classes.navLink}
+          to="/Work"
+          component={Link}
         >
            How this works
         </Button>
       </ListItem>
+      {/* <ListItem className={classes.listItem}>
+       <Button color="transparent" className={classes.navLink} component={Link} to="/Benefits">Benefits</Button>
+      </ListItem> */}
       <ListItem className={classes.listItem}>
-       <Button color="transparent" className={classes.navLink}>Benefits</Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-       <Button color="transparent" className={classes.navLink}>Gallery</Button>
+       <Button color="transparent" className={classes.navLink} component={Link} to="/Gallery">Gallery</Button>
       </ListItem>
       <ListItem className={classes.listItem}>
        <Button color="transparent" className={classes.navLink} component={Link} to="/Shop">Shop</Button>
@@ -105,6 +111,13 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
        <Button color="transparent"  to="/Privacy" component={Link} className={classes.navLink}>Privacy Policy</Button>
       </ListItem>
+      {props.items.length>=1?
+      <ListItem className={classes.listItem}>
+       <Button color="transparent"  to="/CartDetails" component={Link} className={classes.navLink}><Badge color="secondary" variant="dot" >
+          <ShoppingCartIcon />
+        </Badge></Button>
+      </ListItem>
+      :null}
 
       {/* <ListItem className={classes.listItem}> */}
         {/*<Tooltip title="Delete">
@@ -165,3 +178,13 @@ export default function HeaderLinks(props) {
     </List>
   );
 }
+
+const mapStateToProps = state => {
+  const cartReducer = state.reducer;
+  console.log('header',cartReducer)
+  return cartReducer; 
+};
+
+
+
+export default connect(mapStateToProps,null)(HeaderLinks);

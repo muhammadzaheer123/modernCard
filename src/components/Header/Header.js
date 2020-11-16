@@ -57,14 +57,13 @@ export default function Header(props) {
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
-    [classes[color]]: color,
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
 
   return (
-    <AppBar className={appBarClasses}>
+    <AppBar style={{backgroundColor:'black',color:'white'}} className={appBarClasses}>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {leftLinks !== undefined ? (

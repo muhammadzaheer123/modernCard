@@ -25,6 +25,7 @@ import  {faMapMarker,faEnvelope,faAddressCard} from "@fortawesome/free-solid-svg
 import {  } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import global from '../../assets/img/global.jpg';
+
 const useStyles = makeStyles(styles);
 export default function Contact(props){
     const classes = useStyles();
@@ -33,20 +34,22 @@ export default function Contact(props){
     const { ...rest } = props;
     return(
         <div style={{backgroundColor:'white',height:'100%'}}>
+             <div style={{marginTop:-75}}>
         <Header
   
           rightLinks={<HeaderLinks />}
-          fixed
-          color="transparent"
+          // fixed
+          // color="transparent"
           changeColorOnScroll={{
             height: 400,
-            color: "white"
+            color: "black"
           }}
           {...rest}
         />
-        <Parallax image={require("assets/img/bg4.jpg")}>
-          <div className={classes.container}>
-          <h2 style={{color:'white',fontWeight:'bold',flexGrow:1,textAlign:'center',fontSize:50}}>Contact Us</h2>
+        </div>
+        <Parallax style={{marginTop:-20}}  image={require("assets/img/network.jpg")}>
+          <div style={{marginBottom:30}} className={classes.container}>
+          <h2 style={{color:'white',fontWeight:'bold',flexGrow:1,textAlign:'center',fontSize:55,  fontFamily:'Roboto'}}>Contact Us</h2>
             {/* <GridContainer>
                <GridItem>
                
@@ -90,7 +93,7 @@ export default function Contact(props){
             <div className="contact-address">
            <i style={{color:'orange'}}><FontAwesomeIcon icon={faMapMarker} style={{width:40,height:40}} /></i> 
               <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <address>700 Harvest Park Suite E-1</address>
             </div>
           </div>
 
@@ -98,7 +101,7 @@ export default function Contact(props){
             <div className="contact-phone">
             <i style={{color:'orange'}}><FontAwesomeIcon icon={faAddressCard} style={{width:40,height:40}} /></i> 
               <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <p><a href="tel:+155895548855">+1(650) 680-6233</a></p>
             </div>
           </div>
 
@@ -106,7 +109,7 @@ export default function Contact(props){
             <div className="contact-email">
             <i style={{color:'orange'}}><FontAwesomeIcon icon={faEnvelope} style={{width:40,height:40}} /></i> 
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="mailto:info@example.com">info@dtmoderntech.com</a></p>
             </div>
           </div>
 

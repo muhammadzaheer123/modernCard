@@ -6,10 +6,12 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Box from '@material-ui/core/Box';
-
+import Agent from 'assets/img/agent.jpg'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+   
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -24,17 +26,18 @@ const useStyles = makeStyles((theme) => ({
       marginTop:10
   },
   boxContainer:{
-    paddingLeft:20,
+    paddingLeft:40,
     paddingTop:0,
-    paddingRight:20,
+    paddingRight:40,
     paddingBottom:20,
-      width:'100%'
+      width:'50%'
   }
 }));
 
 export default function ControlledAccordions() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+    const matches = useMediaQuery('(min-width:600px)');
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -42,8 +45,15 @@ export default function ControlledAccordions() {
 
   return (
     <div className={classes.root}>
-        <h3 style={{flexGrow:1,textAlign:'center',fontWeight:'bold',fontSize:40,color:'black'}}>FAQ</h3>
-    <Box className={classes.boxContainer}><Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+        <div style={{marginTop:100}} className="row">
+    <div className="col-lg-6 col-md-6,col-xs-12" style={{width:'100%',flexDirection:'column'}}>
+      <Box style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center',marginTop:-50}}>
+        <img src={Agent} style={{width:400,height:572,objectFit:'cover'}}  />
+      </Box>
+      </div>
+      <div  className="col-lg-6 col-md-6,col-xs-12" >
+      <h3 style={{marginBottom:-70,marginTop:25,fontWeight:700,marginLeft:40,fontSize:30}}>Frequest Asks Questions</h3>
+      <Box style={{marginTop:100,width:'100%'}} className={classes.boxContainer}><Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
@@ -129,7 +139,9 @@ export default function ControlledAccordions() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      </Box>  
+      </Box> 
+      </div> 
+      </div>
     </div>
   );
 }

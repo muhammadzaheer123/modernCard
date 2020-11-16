@@ -12,7 +12,7 @@ export default function Footer(){
 <div className="container">
 <div className="row">
 <div className="col-lg-3 col-md-6 footer-info">
-<h3 style={{fontSize:'24px'}}>DTModernTech</h3>
+<h3 style={{fontSize:'24px',color:'white'}}>DTModernTech</h3>
             <p>Primary products like software technologies, distributions and software products can be made with experienced staff which give unique benefits to company. DT Modern Tech covers almost all specialized skills like development, marketing, graphic designing etc.</p>
          </div>
 <div className="col-lg-3 col-md-6 footer-links">
